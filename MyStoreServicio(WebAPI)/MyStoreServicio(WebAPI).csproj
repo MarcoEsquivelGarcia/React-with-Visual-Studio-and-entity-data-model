@@ -286,6 +286,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{5c05feaa-351e-495a-8fb9-dabd3b0d5104}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyStoreEntityModel\MyStoreEntityModel.csproj">
       <Project>{b35265b3-12b0-40f9-90ef-19bb21bac88b}</Project>
       <Name>MyStoreEntityModel</Name>
