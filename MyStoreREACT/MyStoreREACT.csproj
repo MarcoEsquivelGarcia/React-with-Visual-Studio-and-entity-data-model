@@ -75,7 +75,7 @@
     <Content Include="src\components\About\index.js" />
     <Content Include="src\components\App.js" />
     <Content Include="src\components\Contact\index.js" />
-    <Content Include="src\components\FormValidator\FormValidator.js" />
+    <Content Include="src\components\CreateAccount\CreateAccount.js" />
     <Content Include="src\components\Home\index.js" />
     <Content Include="src\components\Page404\index.js" />
     <Content Include="src\components\Tables\Table.js" />
@@ -107,6 +107,7 @@
     <Content Include="src\Global\images\logo.svg" />
     <Content Include="src\index.css" />
     <Content Include="src\index.js" />
+    <Content Include="src\Reactbundle.js" />
     <Content Include="src\routes.js" />
     <Content Include="src\serviceWorker.js" />
     <Content Include="Web.config" />

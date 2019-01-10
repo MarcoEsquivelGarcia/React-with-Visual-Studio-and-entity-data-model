@@ -19,6 +19,9 @@ namespace MyStoreServicio_WebAPI_
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            /// Correccion para los servicios Web API que serializan EF Entities con referencias circulares
+            /// Enlace del recurso (http://code.msdn.microsoft.com/Loop-Reference-handling-in-caaffaf7)
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         }
     }
 }

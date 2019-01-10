@@ -17,7 +17,10 @@ const formValid = ({ formErrors, ...rest }) => {
 
   return valid;
 };
-class FormValidator extends Component{
+
+
+
+class CreateAccount extends Component{
   constructor(props){
      super(props);
      this.state={
@@ -31,24 +34,52 @@ class FormValidator extends Component{
          email:"",
          password:"",
        }
-     };
+      };
+      this.createNewAccount = this.createNewAccount.bind(this);
   }
 
   handleSubmit = e => {
     e.preventDefault();
 
-    if (formValid(this.state)) {
-      console.log(`
+      if (formValid(this.state)) {
+         this.createNewAccount();
+     
+    } else {
+      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+    }
+  };
+    createNewAccount() {
+        debugger;
+        console.log(`
         --SUBMITTING--
         First Name: ${this.state.firstName}
         Last Name: ${this.state.lastName}
         Email: ${this.state.email}
         Password: ${this.state.password}
       `);
-    } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
-    }
-  };
+        var formData = new FormData();
+        formData.append('firstName', this.state.firstName);
+        formData.append('lastName', this.state.lastName);
+        formData.append('email', this.state.lastName);
+        formData.append('lastName', this.state.lastName);
+
+        fetch('http://localhost:62106/api/Usuarios/createNewAccount', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                email: this.state.email,
+                password: this.state.password
+            })
+        }).then(res => res.json())
+            .then(response => console.log('Success:', JSON.stringify(response)))
+            .catch(error => console.error('Error:', error));
+
+    };
 
   handleChange = e =>{
      e.preventDefault();
@@ -138,4 +169,4 @@ class FormValidator extends Component{
    }
 }
 
-export default FormValidator;
+export default CreateAccount;
