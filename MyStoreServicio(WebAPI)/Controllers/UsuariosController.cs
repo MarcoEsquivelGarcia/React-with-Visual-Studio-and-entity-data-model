@@ -18,7 +18,7 @@ namespace MyStoreServicio_WebAPI_.Controllers
         // POST api/usuarios
        
         [HttpPost]
-        public void createNewAccount([FromBody] Usuario usuario)
+        public void createNewAccount([FromBody] UsuarioData usuario)
         {
 
            

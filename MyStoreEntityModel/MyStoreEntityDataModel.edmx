@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MyStoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MyStoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="Id" />
@@ -13,13 +13,12 @@
           <Property Name="firstName" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="lastName" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="email" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="pasword" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="password" Type="binary" MaxLength="16" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MyStoreDbModelStoreContainer">
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MyStoreDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -31,7 +30,7 @@
           <Property Name="firstName" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="lastName" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="pasword" Type="Guid" Nullable="false" />
+          <Property Name="password" Type="Binary" Nullable="false" MaxLength="16" FixedLength="true" />
         </EntityType>
         <EntityContainer Name="MyStoreDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
@@ -45,11 +44,11 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="MyStoreDbModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
                 <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="pasword" ColumnName="pasword" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

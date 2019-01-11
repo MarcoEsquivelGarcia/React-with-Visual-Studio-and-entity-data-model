@@ -18,6 +18,6 @@ namespace MyStoreEntityModel
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string email { get; set; }
-        public System.Guid pasword { get; set; }
+        public byte[] password { get; set; }
     }
 }

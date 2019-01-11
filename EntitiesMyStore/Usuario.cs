@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace EntitiesMyStore
 {
-    public class Usuario
+    public class UsuarioData
     {
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string email { get; set; }
         public string password { get; set; }
+
     }
 }
